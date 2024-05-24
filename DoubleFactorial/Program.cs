@@ -1,18 +1,33 @@
 ﻿internal class Program
 {
-    static ulong DoubleFactorial(uint n)
+    static (string working, ulong number) DoubleFactorial(uint n)
     {
-        if (n == 0 || n == 1)
+        if (n == 1)
         {
-            return 1;
+            return ("1", 1);
         }
-        return n * DoubleFactorial(n - 2);
+
+        if (n == 2)
+        {
+            return ("2", 2);
+        }
+        (string working, ulong number) = DoubleFactorial(n - 2);
+        return ($"{n} * " + working, n * number);
     }
     static void Main()
     {
         Console.WriteLine("Please enter a number: ");
         string input = Console.ReadLine() ?? string.Empty;
         uint n = uint.Parse(input);
-        Console.WriteLine("Double Factorial = " + DoubleFactorial(n));
+        if (n == 0)
+        {
+            Console.WriteLine("Double Factorial 0!! = 1");
+        }
+        else
+        {
+            (string working, ulong result) = DoubleFactorial(n);
+            Console.WriteLine($"Double Factorial {n}!! = {working} = {result}.");
+        }
+
     }
 }
