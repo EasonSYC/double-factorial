@@ -21,12 +21,12 @@
         uint n = uint.Parse(input);
         if (n == 0)
         {
-            Console.WriteLine("Double Factorial 0!! = 1");
+            Console.WriteLine("0!! = 1");
         }
         else
         {
             (string working, ulong result) = DoubleFactorial(n);
-            Console.WriteLine($"Double Factorial {n}!! = {working} = {result}.");
+            Console.WriteLine($"{n}!! = {working} = {result}.");
         }
 
     }
